@@ -1,0 +1,19 @@
+{% extends 'tablets/base.html' %}
+{% load bootstrap %}
+
+{% block content %}
+    <div style="width:40%;margin-right: auto;margin-left: auto;">
+        <h1>Create a New Tablet</h1>
+        <a href="{% url 'brand_create' %}" class="btn btn-success" style="font-size: 2rem;">New Brand</a>
+        <a href="{% url 'home' %}" class="btn btn-danger" style="font-size: 2rem;">Cancel</a></br></br>
+        <form class="form-group" action="{% url 'tablets:create' %}" method="post" enctype="multipart/form-data" id="form_create_tablet">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            </br>
+            <input type="submit" class="btn btn-primary" value="Create Tablet" style="font-size: 2rem;">
+        </form>
+    </div>
+{% endblock %}
+
+
+

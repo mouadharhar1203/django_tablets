@@ -1,0 +1,32 @@
+{% extends 'tablets/base.html' %}
+
+{% block content%}
+    <h1>French Brands</h1>
+    <div>
+        <table id="brandsTable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Name</th>
+                    <th>Founder</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for brand in brands %}
+                <tr>
+                    <td>
+                        <div class="imageContainer">
+                            <img src="{{ brand.logo.name|slice:'7:' }}"  class="image" height="50" width="60" >
+                        </div>
+                    </td>
+                    <td>{{ brand.name }}</td>
+                    <td>{{ brand.founder }}</td>
+                    <td>{{ brand.country }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %} 

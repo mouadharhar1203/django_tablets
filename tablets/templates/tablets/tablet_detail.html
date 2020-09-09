@@ -1,0 +1,59 @@
+{% extends 'tablets/base.html' %}
+
+{% block content %}
+<div class="card" style="width:38rem; margin-left:auto; margin-right:auto; display:inline-block; margin-right:80px;">
+    <img class="card-img-top" src="{{ tablet.picture.name|slice:'7:' }}" alt="Card image cap" style="height:18em;">
+    <div class="card-header">
+        <h1 class="card-title">Tablet : {{ tablet.name }}</h1>
+        <h4 class="card-text" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{ tablet.description }}</h4>
+        <button type="button" class="btn btn-lg btn-warning" data-toggle="popover" title="{{ tablet.name }}' Description :'" data-content="{{ tablet.description }}">More !</button>
+    </div>
+    <ul class="list-group list-group-flush">
+        <h4 class="list-group-item">Storage Size : {{ tablet.storage_size }} Gb</h4>
+        <h4 class="list-group-item">Release Year : {{ tablet.release_year }}</h4>
+        <h4 class="list-group-item">Brand : {{ tablet.brand }}</h4>
+    </ul>
+    <div class="card-body">
+        <button type="button" class="btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">
+            Delete Tablet
+        </button>
+    </div>
+</div>
+<div class="card" style="width: 38rem; margin-left: auto; margin-right: auto; display:inline-block">
+    <img class="card-img-top" src="{{ tablet.brand.logo.url|slice:'8:' }}" alt="Card image cap" style="height:18em">
+    <div class="card-header">
+        <h1 class="card-title">Brand : {{ tablet.brand.name }}</h1></br></br>
+    </div>
+    <ul class="list-group list-group-flush">
+        <h4 class="list-group-item">Name of the Brand : {{ tablet.brand.name }}</h4>
+        <h4 class="list-group-item">Founder : {{ tablet.brand.founder }}</h4>
+        <h4 class="list-group-item">Country : {{ tablet.brand.country }}</h4>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link"></a>
+        <a href="#" class="card-link"></a>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Deleting Tablet :</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>You are about to delete this Tablet : {{ tablet.name }} !
+                    Are you sure ?
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Cancel</button>
+                <a href="{% url 'tablets:delete' pk=tablet.id %}"><button type="button" class="btn btn-primary btn-lg">Yes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'tablets/base.html' %}
+{% load bootstrap %}
+
+{% block content %}
+<div style="width:40%;margin-right: auto;margin-left: auto;">
+    <h1>Signup</h1>
+    <form class="form-group" action="{% url 'accounts:signup' %}" method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <input type="submit" class="btn btn-primary" style="font-size: 2rem;" value="Signup">
+    </form>
+</div>
+{% endblock %}
