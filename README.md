@@ -23,8 +23,14 @@ docker-compose run web python manage.py createsuperuser
 ```
 
 #### features implemented:
+
 A page containing 2 tables:
  * 1 table listing all the french tablets released between 2015 and 2020
  * 1 table listing all the others
+ 
+For each model, the following actions are implemented and available from the
+UI:
+  * Tablet: creation, update, deletion
+  * Brand: creation
 
 
