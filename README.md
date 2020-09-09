@@ -1,4 +1,4 @@
-# django_tablets
+# Django Tablets
 Django Postgres Docker Project
 
 
@@ -22,7 +22,7 @@ create a user for admin
 docker-compose run web python manage.py createsuperuser
 ```
 
-#### features implemented:
+#### Features implemented:
 
 A page containing 2 tables:
  * 1 table listing all the french tablets released between 2015 and 2020
